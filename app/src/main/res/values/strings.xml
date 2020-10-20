@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Image Search</string>
+    <string name="unsplash_images">unsplash images</string>
+    <string name="retry">Retry</string>
+    <string name="text_error">Results could not be loaded</string>
+    <string name="text_no_results">No results found for this query</string>
+</resources>
