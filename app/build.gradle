@@ -32,6 +32,10 @@ android {
         targetCompatibility "1.8"
     }
 
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
     ndkVersion '21.3.6528147'
 }
 
@@ -62,6 +66,9 @@ dependencies {
     /*Hilt and Jetpack integrations*/
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02"
     implementation "androidx.hilt:hilt-compiler:1.0.0-alpha02"
+
+    /*Jetpack paging 3*/
+    implementation "androidx.paging:paging-runtime-ktx:3.0.0-alpha07"
 
     testImplementation "junit:junit:4.13.1"
     androidTestImplementation "androidx.test.ext:junit:1.1.2"
