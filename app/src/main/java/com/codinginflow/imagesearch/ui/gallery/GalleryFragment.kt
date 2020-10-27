@@ -22,23 +22,25 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery) {
 
     private val binding get() = _binding!!
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        
-        viewModel.photos.observe(viewLifecycleOwner) {
-
-        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentGalleryBinding.inflate(inflater, container, savedInstanceState)
-        val view = binding.root
-        return view
+        _binding = FragmentGalleryBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        _binding = FragmentGalleryBinding.bind(view)
+        val adapter = UnsplashPhotoAdapter()
+        binding.apply {
+            /*When width and height of recyclerView is not going to change, setHasFixedSize to true*/
+            recyclerView.setHasFixedSize(true)
+        }
+        viewModel.photos.observe(viewLifecycleOwner) {
+        }
     }
 
     override fun onDestroyView() {
